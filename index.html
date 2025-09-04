@@ -9,8 +9,8 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0a0a1a, #111827);
-      overflow: hidden;
+      background: linear-gradient(135deg, #1a1c4b, #4a148c);
+      overflow-x: hidden;
       color: white;
     }
 
@@ -28,7 +28,7 @@
     }
 
     .navbar-brand {
-      font-size: 28px;
+      font-size: 40px;
       font-weight: bold;
       background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
       background-size: 1400% 1400%;
@@ -60,29 +60,81 @@
     /* Floating icons */
     .icon {
       position: absolute;
-      width: 100px;
-      height: 100px;
-      opacity: 0.9;
+      width: 90px;
+      height: 90px;
+      opacity: 0.85;
       animation: float 20s linear infinite;
-      filter: drop-shadow(0 0 12px rgba(255,255,255,0.7));
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.8));
     }
 
     @keyframes float {
       0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-30px) rotate(180deg); }
+      50% { transform: translateY(-40px) rotate(180deg); }
       100% { transform: translateY(0) rotate(360deg); }
     }
 
+    /* Content */
     .content {
       margin-top: 120px;
       text-align: center;
     }
     .content h1 {
-      font-size: 40px;
+      font-size: 42px;
       margin-bottom: 10px;
     }
     .content p {
       font-size: 20px;
+    }
+
+    /* Services Flip Cards */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 60px 40px;
+    }
+
+    .flip-card {
+      background: transparent;
+      width: 100%;
+      height: 220px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .flip-card-front {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+    }
+
+    .flip-card-back {
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      transform: rotateY(180deg);
     }
   </style>
 </head>
@@ -103,32 +155,50 @@
     <p>IT Enabled Services | Software Development | Smart Tech Solutions</p>
   </div>
 
+  <!-- Services Flip Boxes -->
+  <div class="services">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">Software Development</div>
+        <div class="flip-card-back">सॉफ़्टवेयर विकास</div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">AI & Automation</div>
+        <div class="flip-card-back">एआई और स्वचालन</div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">Networking Solutions</div>
+        <div class="flip-card-back">नेटवर्किंग समाधान</div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">Biometric Security</div>
+        <div class="flip-card-back">बायोमेट्रिक सुरक्षा</div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">Smart Devices</div>
+        <div class="flip-card-back">स्मार्ट उपकरण</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating tech icons -->
-  <img src="https://cdn-icons-png.flaticon.com/512/1040/1040221.png" class="icon" style="top:20%; left:10%;" />
-  <img src="https://cdn-icons-png.flaticon.com/512/1040/1040215.png" class="icon" style="top:40%; left:70%;" />
-  <img src="https://cdn-icons-png.flaticon.com/512/1040/1040217.png" class="icon" style="top:65%; left:20%;" />
-  <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" class="icon" style="top:75%; left:80%;" />
-  <img src="https://cdn-icons-png.flaticon.com/512/1040/1040242.png" class="icon" style="top:30%; left:50%;" />
+  <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" class="icon" style="top:20%; left:10%;" /> <!-- fingerprint -->
+  <img src="https://cdn-icons-png.flaticon.com/512/1040/1040215.png" class="icon" style="top:40%; left:70%;" /> <!-- retina -->
+  <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" class="icon" style="top:65%; left:20%;" /> <!-- laptop -->
+  <img src="https://cdn-icons-png.flaticon.com/512/2721/2721305.png" class="icon" style="top:75%; left:80%;" /> <!-- microchip -->
+  <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" class="icon" style="top:30%; left:50%;" /> <!-- IP camera -->
+  <img src="https://cdn-icons-png.flaticon.com/512/1041/1041385.png" class="icon" style="top:55%; left:40%;" /> <!-- IoT -->
 </body>
-  <script>
-  // Disable Right Click
-  document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
-    alert("Right Click Disabled on Averlon Website 🚫");
-  });
-
-  // Disable Keyboard Shortcuts
-  document.onkeydown = function(e) {
-    // F12 or Ctrl+Shift+I or Ctrl+U
-    if (e.keyCode == 123 || 
-       (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
-       (e.ctrlKey && e.keyCode == 85)) {
-      alert("This action is disabled on Averlon Website 🚫");
-      return false;
-    }
-  };
-</script>
-
 </html>
-
-
