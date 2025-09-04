@@ -6,26 +6,39 @@
   <title>Averlon - IT & Future Tech</title>
   <style>
     * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif;}
-    body {background:#f5f7fa; color:#222; line-height:1.6;}
-    header {background:#e3eaf2; padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between;}
+    body {
+      background:#f5f7fa url('https://i.ibb.co/M8vkh09/it-tech-background.jpg') no-repeat center center fixed;
+      background-size:cover;
+      color:#222; line-height:1.6;
+    }
+    header {background:rgba(227,234,242,0.9); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between;}
     header h1 {font-size:1.8rem; color:#0b3d91;}
     header p {color:#333; font-size:1rem;}
-    section {padding:3rem 2rem; max-width:1100px; margin:auto;}
+    section {padding:3rem 2rem; max-width:1100px; margin:auto; background:rgba(255,255,255,0.9); border-radius:12px;}
     h2 {color:#0b3d91; margin-bottom:1.5rem; text-align:center;}
     .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem;}
     .flip-box {background:transparent; perspective:1000px;}
     .flip-box-inner {position:relative; width:100%; height:200px; text-align:center; transition:transform 0.6s; transform-style:preserve-3d;}
     .flip-box:hover .flip-box-inner {transform:rotateY(180deg);}
     .flip-box-front, .flip-box-back {
-      position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; padding:1rem;
+      position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.2); display:flex; align-items:center; justify-content:center; padding:1rem;
     }
     .flip-box-front {background:#ffffff; color:#0b3d91;}
     .flip-box-back {background:#0b3d91; color:#fff; transform:rotateY(180deg);}
-    .contact {text-align:center;}
+    .contact {text-align:center; background:rgba(255,255,255,0.9); border-radius:12px; padding:2rem;}
     .contact p {margin:0.5rem 0;}
-    footer {background:#e3eaf2; text-align:center; padding:1rem; margin-top:2rem; color:#333; font-size:0.9rem;}
+    footer {background:rgba(227,234,242,0.9); text-align:center; padding:1rem; margin-top:0; color:#333; font-size:0.9rem; position:relative;}
     a {color:#0b3d91; text-decoration:none;}
-    marquee {background:#0b3d91; color:#fff; padding:0.5rem; font-size:1rem; margin-top:2rem; border-radius:4px;}
+    marquee {
+      background:#0b3d91;
+      color:#fff;
+      padding:0.8rem;
+      font-size:1rem;
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+    }
   </style>
 </head>
 <body>
@@ -85,7 +98,6 @@
         </div>
       </div>
     </div>
-    <marquee behavior="scroll" direction="left">✨ IT Enabled Services | Website Development | Software Development | IT Services ✨</marquee>
   </section>
 
   <section class="contact">
@@ -96,6 +108,10 @@
 
   <footer>
     © 2025 Averlon. All Rights Reserved.
+    <marquee behavior="scroll" direction="left">✨ IT Enabled Services | Website Development | Software Development | IT Services ✨</marquee>
   </footer>
 </body>
 </html>
+
+</html>
+
