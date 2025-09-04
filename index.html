@@ -201,4 +201,23 @@
   <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" class="icon" style="top:30%; left:50%;" /> <!-- IP camera -->
   <img src="https://cdn-icons-png.flaticon.com/512/1041/1041385.png" class="icon" style="top:55%; left:40%;" /> <!-- IoT -->
 </body>
+  <script>
+  // Disable Right Click
+  document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+    alert("Right Click Disabled on Averlon Website 🚫");
+  });
+
+  // Disable Keyboard Shortcuts
+  document.onkeydown = function(e) {
+    // F12 or Ctrl+Shift+I or Ctrl+U
+    if (e.keyCode == 123 || 
+       (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
+       (e.ctrlKey && e.keyCode == 85)) {
+      alert("This action is disabled on Averlon TanuBita 🚫");
+      return false;
+    }
+  };
+</script>
 </html>
+
