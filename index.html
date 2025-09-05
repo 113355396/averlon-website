@@ -5,150 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Averlon - IT & Technology</title>
 <style>
-  /* Reset */
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: Arial, sans-serif;
-    background: #0f0f1d;
-    color: #fff;
-    overflow-x: hidden;
-  }
+  body { font-family: Arial, sans-serif; background: #0f0f1d; color: #fff; }
 
   /* Navbar */
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: rgba(0,0,0,0.7);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 50px; background: rgba(0,0,0,0.7); position: fixed; top:0; width:100%; z-index:1000;
   }
-  .navbar-brand {
-    font-size: 36px;
-    font-weight: bold;
-    color: #00ffff;
-  }
-  .navbar-menu a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 16px;
-    transition: 0.3s;
-  }
-  .navbar-menu a:hover {
-    color: #00ffff;
-  }
+  .navbar-brand { font-size:36px; font-weight:bold; color:#00ffff; }
+  .navbar-menu a { color:#fff; text-decoration:none; margin-left:30px; font-size:16px; transition:0.3s; }
+  .navbar-menu a:hover { color:#00ffff; }
 
-  /* Hero Section */
-  .hero {
+  /* Slider / Hero Section */
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 120px 50px 50px 50px;
-    min-height: 100vh;
-    background: url('https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/banner-one-shape3.png') no-repeat top right;
-    background-size: contain;
+    justify-content: center;
   }
-  .hero-text {
+  .slides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    animation: slide 16s infinite;
+  }
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .slide-text {
+    position: absolute;
+    left: 50px; top: 50%; transform: translateY(-50%);
     max-width: 600px;
   }
-  .hero-text h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #00ffff;
+  .slide-text h1 { font-size: 48px; margin-bottom: 20px; color: #00ffff; }
+  .slide-text p { font-size: 20px; margin-bottom: 20px; }
+  .slide-text button {
+    padding:12px 25px; font-size:16px; background:#00ffff; border:none; color:#000;
+    cursor:pointer; border-radius:5px; transition:0.3s;
   }
-  .hero-text p {
-    font-size: 20px;
-    line-height: 1.5;
-    margin-bottom: 30px;
-  }
-  .hero-text button {
-    padding: 12px 25px;
-    font-size: 16px;
-    background: #00ffff;
-    border: none;
-    color: #000;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
-  .hero-text button:hover {
-    background: #00bbbb;
+  .slide-text button:hover { background:#00bbbb; }
+
+  @keyframes slide {
+    0% { transform: translateX(0%); }
+    20% { transform: translateX(0%); }
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    95% { transform: translateX(-300%); }
+    100% { transform: translateX(0%); }
   }
 
-  /* Process / Images Section */
-  .process-section {
-    padding: 100px 50px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-    background: #11112b;
-  }
-  .process-card {
-    background: #1a1a3d;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 250px;
-    transition: 0.3s;
-  }
-  .process-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
-  .process-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #00ffff;
-  }
-  .process-card p {
-    font-size: 14px;
-    color: #ccc;
-  }
+  /* Process Section */
+  .process-section { padding:100px 50px; display:flex; justify-content:space-around; flex-wrap:wrap; gap:30px; background:#11112b; }
+  .process-card { background:#1a1a3d; padding:20px; border-radius:10px; text-align:center; width:250px; transition:0.3s; }
+  .process-card img { width:100%; border-radius:10px; margin-bottom:15px; }
+  .process-card h3 { font-size:20px; margin-bottom:10px; color:#00ffff; }
+  .process-card p { font-size:14px; color:#ccc; }
 
   /* Services Section */
-  .services {
-    padding: 100px 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    background: #0a0a1b;
-  }
-  .service-card {
-    background: #1a1a3d;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    transition: 0.3s;
-  }
-  .service-card img {
-    width: 80px;
-    margin-bottom: 15px;
-  }
-  .service-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #00ffff;
-  }
-  .service-card p {
-    font-size: 14px;
-    color: #ccc;
-  }
+  .services { padding:100px 50px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; background:#0a0a1b; }
+  .service-card { background:#1a1a3d; padding:30px; border-radius:15px; text-align:center; transition:0.3s; }
+  .service-card img { width:80px; margin-bottom:15px; }
+  .service-card h3 { font-size:20px; margin-bottom:10px; color:#00ffff; }
+  .service-card p { font-size:14px; color:#ccc; }
 
   /* Footer */
-  footer {
-    padding: 50px;
-    text-align: center;
-    background: #11112b;
-    font-size: 14px;
-    color: #888;
-  }
+  footer { padding:50px; text-align:center; background:#11112b; font-size:14px; color:#888; }
 
 </style>
 </head>
@@ -166,12 +99,37 @@
   </div>
 </div>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Welcome to Averlon</h1>
-    <p>IT Enabled Services | Software Development | Smart Tech Solutions</p>
-    <button>Explore Services</button>
+<!-- Slider / Hero Section -->
+<section class="slider">
+  <div class="slides">
+    <div class="slide" style="background-image:url('https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/banner-one-shape3.png');">
+      <div class="slide-text">
+        <h1>Innovative IT Solutions</h1>
+        <p>Empowering businesses with modern technology.</p>
+        <button>Explore Services</button>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/about-img5.png');">
+      <div class="slide-text">
+        <h1>Data Science & AI</h1>
+        <p>Harnessing data for smarter decisions.</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/process1.png');">
+      <div class="slide-text">
+        <h1>Advanced Analytics</h1>
+        <p>Transforming raw data into actionable insights.</p>
+        <button>Get Started</button>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/process2.png');">
+      <div class="slide-text">
+        <h1>Smart Technology</h1>
+        <p>Integrating IoT and AI for modern solutions.</p>
+        <button>Contact Us</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -219,17 +177,17 @@
   <div class="service-card">
     <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" alt="Networking">
     <h3>Networking Solutions</h3>
-    <p>Secure and robust networking infrastructure.</p>
+    <p>Secure and scalable networking services.</p>
   </div>
   <div class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721305.png" alt="Biometric Security">
+    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721305.png" alt="Biometric">
     <h3>Biometric Security</h3>
-    <p>Fingerprint and retina-based security systems.</p>
+    <p>Advanced biometric security solutions.</p>
   </div>
   <div class="service-card">
     <img src="https://cdn-icons-png.flaticon.com/512/1041/1041385.png" alt="Smart Devices">
     <h3>Smart Devices</h3>
-    <p>IoT enabled smart devices for modern tech.</p>
+    <p>IoT and smart device integration.</p>
   </div>
 </section>
 
