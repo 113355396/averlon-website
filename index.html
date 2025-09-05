@@ -81,21 +81,21 @@
     .hero-image img {
       max-width: 500px;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+      box-shadow: 0 0 30px rgba(0,255,255,0.4);
     }
 
     /* Services Flip Cards */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
       padding: 60px 40px;
     }
 
     .flip-card {
       background: transparent;
       width: 100%;
-      height: 220px;
+      height: 250px;
       perspective: 1000px;
     }
 
@@ -106,6 +106,8 @@
       text-align: center;
       transition: transform 0.8s;
       transform-style: preserve-3d;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
     }
 
     .flip-card:hover .flip-card-inner {
@@ -119,12 +121,13 @@
       backface-visibility: hidden;
       border-radius: 15px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       font-size: 20px;
       font-weight: bold;
       color: white;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
     }
 
@@ -136,6 +139,13 @@
       background: linear-gradient(135deg, #ff512f, #dd2476);
       transform: rotateY(180deg);
     }
+
+    .flip-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -157,7 +167,7 @@
       <p>IT Enabled Services | Software Development | Smart Tech Solutions</p>
     </div>
     <div class="hero-image">
-      <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" alt="IT Services Illustration"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Servers Illustration"/>
     </div>
   </div>
 
@@ -165,35 +175,50 @@
   <div class="services">
     <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front">Software Development</div>
+        <div class="flip-card-front">
+          <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Software"/>
+          Software Development
+        </div>
         <div class="flip-card-back">सॉफ़्टवेयर विकास</div>
       </div>
     </div>
 
     <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front">AI & Automation</div>
+        <div class="flip-card-front">
+          <img src="https://cdn-icons-png.flaticon.com/512/1040/1040215.png" alt="AI"/>
+          AI & Automation
+        </div>
         <div class="flip-card-back">एआई और स्वचालन</div>
       </div>
     </div>
 
     <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front">Networking Solutions</div>
+        <div class="flip-card-front">
+          <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" alt="Networking"/>
+          Networking Solutions
+        </div>
         <div class="flip-card-back">नेटवर्किंग समाधान</div>
       </div>
     </div>
 
     <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front">Biometric Security</div>
+        <div class="flip-card-front">
+          <img src="https://cdn-icons-png.flaticon.com/512/2721/2721305.png" alt="Biometric"/>
+          Biometric Security
+        </div>
         <div class="flip-card-back">बायोमेट्रिक सुरक्षा</div>
       </div>
     </div>
 
     <div class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front">Smart Devices</div>
+        <div class="flip-card-front">
+          <img src="https://cdn-icons-png.flaticon.com/512/1041/1041385.png" alt="Smart Devices"/>
+          Smart Devices
+        </div>
         <div class="flip-card-back">स्मार्ट उपकरण</div>
       </div>
     </div>
