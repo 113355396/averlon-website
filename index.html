@@ -5,150 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Averlon - IT Enabled Services</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      overflow-x: hidden;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Arial',sans-serif; background: linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:#fff; overflow-x:hidden; line-height:1.6; }
 
-    /* Navbar */
-    .navbar {
-      width: 100%;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0,0,0,0.6);
-      position: fixed;
-      top: 0;
-      z-index: 1000;
-    }
+    a { text-decoration:none; color:inherit; }
 
-    .navbar-brand {
-      font-size: 40px;
-      font-weight: bold;
-      background: linear-gradient(270deg, #00f0ff, #0066ff, #00ff99);
-      background-size: 600% 600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbow 8s ease infinite;
-    }
+    img { max-width:100%; display:block; }
 
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    /* ===== Navbar ===== */
+    .navbar { width:100%; padding:15px 50px; display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.6); position:fixed; top:0; z-index:1000; }
+    .navbar-brand { font-size:36px; font-weight:bold; background: linear-gradient(270deg,#00f0ff,#0066ff,#00ff99); background-size:600% 600%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:rainbow 8s ease infinite; }
+    @keyframes rainbow { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .navbar-menu { display:flex; gap:25px; }
+    .navbar-menu a { font-size:18px; transition:0.3s; }
+    .navbar-menu a:hover { color:#00f0ff; }
 
-    .navbar-menu {
-      display: flex;
-      gap: 20px;
-    }
-    .navbar-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      transition: 0.3s;
-    }
-    .navbar-menu a:hover {
-      color: cyan;
-    }
+    /* ===== Hero Section ===== */
+    .hero { display:flex; justify-content:space-between; align-items:center; padding:150px 50px 80px 50px; flex-wrap:wrap; gap:30px; opacity:0; transform:translateY(50px); transition:1s ease; }
+    .hero.visible { opacity:1; transform:translateY(0); }
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 140px 50px 50px 50px;
-      gap: 30px;
-    }
+    .hero-text { max-width:600px; }
+    .hero-text h1 { font-size:48px; margin-bottom:20px; }
+    .hero-text p { font-size:20px; color:#d0d0d0; }
+    .hero-text .cta { display:inline-block; margin-top:25px; padding:12px 30px; background:#00f0ff; color:#000; font-weight:bold; border-radius:8px; transition:0.3s; }
+    .hero-text .cta:hover { background:#0066ff; color:#fff; box-shadow:0 0 15px rgba(0,255,255,0.5); }
 
-    .hero-text {
-      max-width: 600px;
-    }
-    .hero-text h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .hero-text p {
-      font-size: 22px;
-      line-height: 1.5;
-    }
+    .hero-image img { max-width:500px; border-radius:15px; box-shadow:0 0 30px rgba(0,255,255,0.4); }
 
-    .hero-image img {
-      max-width: 500px;
-      border-radius: 15px;
-      box-shadow: 0 0 30px rgba(0,255,255,0.4);
-    }
+    /* ===== Services Section ===== */
+    .services { padding:80px 50px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+    .service-card { background: linear-gradient(135deg,#00c6ff,#0072ff); border-radius:15px; padding:25px 20px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.3); transition:0.3s; opacity:0; transform:translateY(50px); }
+    .service-card.visible { opacity:1; transform:translateY(0); }
+    .service-card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.5); }
+    .service-card img { width:60px; margin-bottom:15px; }
+    .service-card h3 { font-size:22px; margin-bottom:10px; }
+    .service-card p { font-size:16px; color:#e0e0e0; }
 
-    /* Services Flip Cards */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      padding: 60px 40px;
-    }
+    /* ===== About Section ===== */
+    .about { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; padding:80px 50px; gap:30px; opacity:0; transform:translateY(50px); transition:1s ease; }
+    .about.visible { opacity:1; transform:translateY(0); }
+    .about-text { max-width:600px; }
+    .about-text h2 { font-size:36px; margin-bottom:20px; }
+    .about-text p { font-size:18px; color:#d0d0d0; margin-bottom:20px; }
+    .about-image img { max-width:500px; border-radius:15px; box-shadow:0 0 30px rgba(0,255,255,0.3); }
 
-    .flip-card {
-      background: transparent;
-      width: 100%;
-      height: 250px;
-      perspective: 1000px;
-    }
+    /* ===== Footer ===== */
+    footer { background:#111; padding:40px 50px; text-align:center; color:#aaa; }
+    footer a { color:#00f0ff; margin:0 10px; transition:0.3s; }
+    footer a:hover { color:#0066ff; }
 
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    @media (max-width:900px) {
+      .hero, .about { flex-direction:column-reverse; text-align:center; }
+      .hero-image img, .about-image img { max-width:90%; }
     }
-
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    .flip-card-front {
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-    }
-
-    .flip-card-back {
-      background: linear-gradient(135deg, #ff512f, #dd2476);
-      transform: rotateY(180deg);
-    }
-
-    .flip-card img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 10px;
-    }
-
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
   <div class="navbar">
     <div class="navbar-brand">AVERLON</div>
     <div class="navbar-menu">
@@ -161,86 +75,81 @@
   </div>
 
   <!-- Hero Section -->
-  <div class="hero">
+  <section class="hero">
     <div class="hero-text">
-      <h1>Welcome to Averlon</h1>
-      <p>IT Enabled Services | Software Development | Smart Tech Solutions</p>
+      <h1>Innovating IT Solutions for the Future</h1>
+      <p>We provide cutting-edge IT enabled services, software development, and smart tech solutions for businesses worldwide.</p>
+      <a href="#services" class="cta">Explore Services</a>
     </div>
     <div class="hero-image">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Servers Illustration"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Tech Illustration">
     </div>
-  </div>
+  </section>
 
-  <!-- Services Flip Boxes -->
-  <div class="services">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Software"/>
-          Software Development
-        </div>
-        <div class="flip-card-back">सॉफ़्टवेयर विकास</div>
-      </div>
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Software">
+      <h3>Software Development</h3>
+      <p>Custom software solutions for businesses of all sizes with scalable architecture.</p>
     </div>
-
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="https://cdn-icons-png.flaticon.com/512/1040/1040215.png" alt="AI"/>
-          AI & Automation
-        </div>
-        <div class="flip-card-back">एआई और स्वचालन</div>
-      </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1040/1040215.png" alt="AI">
+      <h3>AI & Automation</h3>
+      <p>Advanced AI and automation solutions to enhance productivity and efficiency.</p>
     </div>
-
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" alt="Networking"/>
-          Networking Solutions
-        </div>
-        <div class="flip-card-back">नेटवर्किंग समाधान</div>
-      </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" alt="Networking">
+      <h3>Networking Solutions</h3>
+      <p>Reliable networking and cloud infrastructure services for seamless connectivity.</p>
     </div>
-
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="https://cdn-icons-png.flaticon.com/512/2721/2721305.png" alt="Biometric"/>
-          Biometric Security
-        </div>
-        <div class="flip-card-back">बायोमेट्रिक सुरक्षा</div>
-      </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721305.png" alt="Biometric">
+      <h3>Biometric Security</h3>
+      <p>Advanced biometric solutions for secure authentication and access control.</p>
     </div>
-
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="https://cdn-icons-png.flaticon.com/512/1041/1041385.png" alt="Smart Devices"/>
-          Smart Devices
-        </div>
-        <div class="flip-card-back">स्मार्ट उपकरण</div>
-      </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1041/1041385.png" alt="Smart Devices">
+      <h3>Smart Devices</h3>
+      <p>Integration of IoT and smart devices for modern, connected workplaces.</p>
     </div>
-  </div>
+  </section>
 
-<script>
-  // Disable Right Click
-  document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
-    alert("Right Click Disabled on Averlon Website 🚫");
-  });
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-text">
+      <h2>About Averlon</h2>
+      <p>Averlon is dedicated to providing innovative IT solutions and enabling businesses to achieve their digital transformation goals with AI, automation, and smart technology integration.</p>
+      <p>We focus on delivering scalable, reliable, and cutting-edge technology solutions to clients worldwide.</p>
+    </div>
+    <div class="about-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" alt="About Image">
+    </div>
+  </section>
 
-  // Disable Keyboard Shortcuts
-  document.onkeydown = function(e) {
-    // F12 or Ctrl+Shift+I or Ctrl+U
-    if (e.keyCode == 123 || 
-       (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
-       (e.ctrlKey && e.keyCode == 85)) {
-      alert("This action is disabled on Averlon TanuBita 🚫");
-      return false;
-    }
-  };
-</script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Averlon. All Rights Reserved.</p>
+    <p>
+      <a href="#">Facebook</a> |
+      <a href="#">LinkedIn</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">Instagram</a>
+    </p>
+  </footer>
+
+  <script>
+    // Scroll Animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.hero, .service-card, .about').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
