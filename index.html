@@ -9,9 +9,9 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1a1c4b, #4a148c);
-      overflow-x: hidden;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      overflow-x: hidden;
     }
 
     /* Navbar */
@@ -30,8 +30,8 @@
     .navbar-brand {
       font-size: 40px;
       font-weight: bold;
-      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 1400% 1400%;
+      background: linear-gradient(270deg, #00f0ff, #0066ff, #00ff99);
+      background-size: 600% 600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: rainbow 8s ease infinite;
@@ -57,33 +57,31 @@
       color: cyan;
     }
 
-    /* Floating icons */
-    .icon {
-      position: absolute;
-      width: 90px;
-      height: 90px;
-      opacity: 0.85;
-      animation: float 20s linear infinite;
-      filter: drop-shadow(0 0 12px rgba(255,255,255,0.8));
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 140px 50px 50px 50px;
+      gap: 30px;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-40px) rotate(180deg); }
-      100% { transform: translateY(0) rotate(360deg); }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 22px;
+      line-height: 1.5;
     }
 
-    /* Content */
-    .content {
-      margin-top: 120px;
-      text-align: center;
-    }
-    .content h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-    .content p {
-      font-size: 20px;
+    .hero-image img {
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
     }
 
     /* Services Flip Cards */
@@ -126,6 +124,8 @@
       font-size: 20px;
       font-weight: bold;
       color: white;
+      padding: 10px;
+      text-align: center;
     }
 
     .flip-card-front {
@@ -150,9 +150,15 @@
     </div>
   </div>
 
-  <div class="content">
-    <h1>Welcome to Averlon</h1>
-    <p>IT Enabled Services | Software Development | Smart Tech Solutions</p>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Welcome to Averlon</h1>
+      <p>IT Enabled Services | Software Development | Smart Tech Solutions</p>
+    </div>
+    <div class="hero-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" alt="IT Services Illustration"/>
+    </div>
   </div>
 
   <!-- Services Flip Boxes -->
@@ -193,15 +199,7 @@
     </div>
   </div>
 
-  <!-- Floating tech icons -->
-  <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" class="icon" style="top:20%; left:10%;" /> <!-- fingerprint -->
-  <img src="https://cdn-icons-png.flaticon.com/512/1040/1040215.png" class="icon" style="top:40%; left:70%;" /> <!-- retina -->
-  <img src="https://cdn-icons-png.flaticon.com/512/1034/1034153.png" class="icon" style="top:65%; left:20%;" /> <!-- laptop -->
-  <img src="https://cdn-icons-png.flaticon.com/512/2721/2721305.png" class="icon" style="top:75%; left:80%;" /> <!-- microchip -->
-  <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" class="icon" style="top:30%; left:50%;" /> <!-- IP camera -->
-  <img src="https://cdn-icons-png.flaticon.com/512/1041/1041385.png" class="icon" style="top:55%; left:40%;" /> <!-- IoT -->
-</body>
-  <script>
+<script>
   // Disable Right Click
   document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
@@ -219,5 +217,5 @@
     }
   };
 </script>
+</body>
 </html>
-
