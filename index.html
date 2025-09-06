@@ -20,43 +20,40 @@
 
   /* Hero Section */
   .hero {
-    height:90vh;
+    height: 33vh; /* sirf 1/3 screen height */
     display:flex;
     justify-content:center;
     align-items:center;
-    position:relative;
     margin-top:80px;
+    background:#eef7ff;
+    position:relative;
     overflow:hidden;
-    background:#fff;
   }
 
-  /* Slider Text */
-  .slider-text {
-    font-size:50px; font-weight:bold; color:#fff; text-align:center;
-    position:absolute;
-    z-index:10;
-    animation: fade 9s infinite;
+  /* Tagline Balloons */
+  .tagline-balloon {
+    width: 320px;
+    height: 90px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #4facfe, #00f2fe);
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 90px;
+    margin: 0 auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    display: none;
+    animation: pop 1s ease forwards;
   }
 
-  @keyframes fade {
-    0%,33% { opacity:1; transform:translateY(0); }
-    34%,66% { opacity:0; transform:translateY(-50px); }
-    67%,100% { opacity:0; transform:translateY(-50px); }
+  .tagline-balloon.active {
+    display: block;
   }
 
-  /* Slider taglines individually */
-  .slider-text span { display:none; }
-  .slider-text span.active { display:block; }
-
-  /* Moving Bubbles */
-  .bubble {
-    position:absolute; border-radius:50%; opacity:0.6;
-    animation: floatBubble linear infinite;
-  }
-
-  @keyframes floatBubble {
-    0% { transform:translateY(100vh) scale(0.5); }
-    100% { transform:translateY(-100px) scale(1); }
+  @keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
   }
 
   /* Process Section */
@@ -94,17 +91,10 @@
 <!-- Hero Section -->
 <section class="hero">
   <div class="slider-text">
-    <span class="active">Innovative IT Solutions</span>
-    <span>Data Science & AI</span>
-    <span>Smart Technology</span>
+    <div class="tagline-balloon active">Innovative IT Solutions</div>
+    <div class="tagline-balloon">Data Science & AI</div>
+    <div class="tagline-balloon">Smart Technology</div>
   </div>
-
-  <!-- Moving Bubbles -->
-  <div class="bubble" style="width:40px;height:40px;left:10%;animation-duration:12s;background:#ff0000;"></div>
-  <div class="bubble" style="width:60px;height:60px;left:30%;animation-duration:15s;background:#00ff00;"></div>
-  <div class="bubble" style="width:50px;height:50px;left:50%;animation-duration:18s;background:#0000ff;"></div>
-  <div class="bubble" style="width:30px;height:30px;left:70%;animation-duration:10s;background:#ff00ff;"></div>
-  <div class="bubble" style="width:35px;height:35px;left:85%;animation-duration:14s;background:#00ffff;"></div>
 </section>
 
 <!-- Process Section -->
@@ -151,21 +141,19 @@
 </footer>
 
 <script>
-  // Slider JS - page by page
-  let slides = document.querySelectorAll('.slider-text span');
-  let current = 0;
+  // Slider for tagline balloons
+  let balloons = document.querySelectorAll('.tagline-balloon');
+  let index = 0;
 
-  function showSlide(index){
-    slides.forEach((slide,i)=>{
-      slide.classList.remove('active');
-      if(i===index) slide.classList.add('active');
-    });
+  function showBalloon(i) {
+    balloons.forEach((b, n) => b.classList.remove('active'));
+    balloons[i].classList.add('active');
   }
 
-  setInterval(()=>{
-    current = (current+1)%slides.length;
-    showSlide(current);
-  },4000);
+  setInterval(() => {
+    index = (index + 1) % balloons.length;
+    showBalloon(index);
+  }, 4000);
 </script>
 
 </body>
