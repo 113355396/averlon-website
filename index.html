@@ -15,52 +15,79 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   .navbar-brand { font-size:40px; font-weight:bold; color:#fff; }
-  .navbar-menu a { color:#fff; text-decoration:none; margin-left:30px; font-size:18px; transition:0.3s; }
+  .navbar-menu { position: relative; }
+  .navbar-menu a {
+    color:#fff; text-decoration:none; margin-left:30px; font-size:18px; transition:0.3s; position:relative;
+  }
   .navbar-menu a:hover { color:#aaddff; }
 
-  /* Hero Banner */
-  .hero {
-    height: 33vh;
+  /* Dropdown Submenu */
+  .dropdown {
     position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: #0077cc;
+    min-width: 220px;
+    top: 40px;
+    left: 0;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+  .dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    display: block;
+    font-size: 16px;
+  }
+  .dropdown-content a:hover {
+    background: #005fa3;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 33vh; /* sirf 1/3 screen height */
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
     margin-top:80px;
+    background:#eef7ff;
+    position:relative;
+    padding-left: 60px;
     overflow:hidden;
   }
-  .hero video {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
 
-  /* Tagline text */
+  /* Taglines as dark text */
   .tagline {
-    position:absolute;
-    bottom:20px;         /* banner ke bottom me */
-    left:30px;           /* left side me */
-    color:#fff;
-    font-size:26px;
-    font-weight:bold;
-    text-align:left;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-    opacity:0;
-    animation: fadeInOut 6s linear infinite;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    display: none;
+    animation: fadeIn 1s ease forwards;
+  }
+  .tagline.active {
+    display: block;
   }
 
-  .tagline:nth-child(2) { animation-delay:0s; }
-  .tagline:nth-child(3) { animation-delay:6s; }
-  .tagline:nth-child(4) { animation-delay:12s; }
-  .tagline:nth-child(5) { animation-delay:18s; }
-  .tagline:nth-child(6) { animation-delay:24s; }
-  .tagline:nth-child(7) { animation-delay:30s; }
-  .tagline:nth-child(8) { animation-delay:36s; }
-  .tagline:nth-child(9) { animation-delay:42s; }
-
-  @keyframes fadeInOut {
-    0% { opacity:0; }
-    10% { opacity:1; }
-    40% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:0; }
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
   }
+
+  /* Process Section */
+  .process-section { padding:100px 50px; display:flex; justify-content:space-around; flex-wrap:wrap; gap:30px; }
+  .process-card { background:#f9f9f9; padding:20px; border-radius:10px; text-align:center; width:250px; transition:0.3s; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  .process-card img { width:100%; border-radius:10px; margin-bottom:15px; }
+  .process-card h3 { font-size:20px; margin-bottom:10px; color:#000; }
+  .process-card p { font-size:14px; color:#333; }
+
+  /* Footer */
+  footer { padding:50px; text-align:center; background:#0077cc; font-size:14px; color:#fff; }
 </style>
 </head>
 <body>
@@ -71,7 +98,21 @@
   <div class="navbar-menu">
     <a href="#">Home</a>
     <a href="#">About</a>
-    <a href="#">Services</a>
+    <div class="dropdown">
+      <a href="#">Services ▾</a>
+      <div class="dropdown-content">
+        <a href="#">Innovative IT Solutions</a>
+        <a href="#">Home Security</a>
+        <a href="#">Smart Technology</a>
+        <a href="#">Back Office Operations</a>
+        <a href="#">Smart Classrooms</a>
+        <a href="#">Smart Home</a>
+        <a href="#">Website Development</a>
+        <a href="#">Online Form Filling Works</a>
+        <a href="#">Computer Networking</a>
+        <a href="#">Cloud Storage Services</a>
+      </div>
+    </div>
     <a href="#">Process</a>
     <a href="#">Contact</a>
   </div>
@@ -79,26 +120,59 @@
 
 <!-- Hero Section -->
 <section class="hero">
-  <!-- Water Background Video -->
-  <video autoplay muted loop>
-    <source src="https://cdn.pixabay.com/vimeo/264100148/water-16262.mp4?width=640&hash=2c90f34fef6b1d8e62c3d0af6c27538a27f4ff36" type="video/mp4">
-  </video>
-
-  <!-- Taglines -->
-  <div class="tagline">Innovative IT Solutions</div>
-  <div class="tagline">Home Security</div>
-  <div class="tagline">Smart Technology</div>
-  <div class="tagline">Back Office Operations</div>
-  <div class="tagline">Smart Classrooms</div>
-  <div class="tagline">Smart Home</div>
-  <div class="tagline">Website Development</div>
-  <div class="tagline">Computer Networking</div>
+  <div class="slider-text">
+    <div class="tagline active">Innovative IT Solutions</div>
+    <div class="tagline">Home Security</div>
+    <div class="tagline">Smart Technology</div>
+    <div class="tagline">Back Office Operations</div>
+    <div class="tagline">Smart Classrooms</div>
+    <div class="tagline">Smart Home</div>
+    <div class="tagline">Website Development</div>
+    <div class="tagline">Online Form Filling Works</div>
+    <div class="tagline">Computer Networking</div>
+    <div class="tagline">Cloud Storage Services</div>
+  </div>
 </section>
 
-<!-- Background Water Sound -->
-<audio autoplay loop>
-  <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
-</audio>
+<!-- Process Section -->
+<section class="process-section">
+  <div class="process-card">
+    <img src="https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/process1.png" alt="Process 1">
+    <h3>Data Collection</h3>
+    <p>Collecting raw and structured data for analysis.</p>
+  </div>
+  <div class="process-card">
+    <img src="https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/process2.png" alt="Process 2">
+    <h3>Data Processing</h3>
+    <p>Processing and cleaning data for actionable insights.</p>
+  </div>
+  <div class="process-card">
+    <img src="https://raw.githubusercontent.com/113355396/averlon-website/b1842e71f3315e246f351dd2af4b196b7690958f/process4.png" alt="Process 3">
+    <h3>Analysis</h3>
+    <p>Analyzing data using AI & Machine Learning.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Averlon. All Rights Reserved.
+</footer>
+
+<script>
+  // Slider for taglines
+  let taglines = document.querySelectorAll('.tagline');
+  let idx = 0;
+
+  function showTagline(i) {
+    taglines.forEach(t => t.classList.remove('active'));
+    taglines[i].classList.add('active');
+  }
+
+  setInterval(() => {
+    idx = (idx + 1) % taglines.length;
+    showTagline(idx);
+  }, 6000); // 6 seconds interval
+</script>
 
 </body>
 </html>
