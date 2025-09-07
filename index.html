@@ -21,36 +21,55 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    .navbar-brand { font-size: 40px; font-weight: bold; color: #fff; }
+    .navbar-brand { font-size: 36px; font-weight: bold; color: #fff; }
+    .navbar-menu { display: flex; gap: 30px; }
     .navbar-menu a {
       color: #fff;
       text-decoration: none;
-      margin-left: 30px;
       font-size: 18px;
-      transition: 0.3s;
     }
     .navbar-menu a:hover { color: #aaddff; }
 
-    /* Hero Section */
+    /* Dropdown */
+    .dropdown { position: relative; }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: #fff;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .dropdown-content a {
+      color: #0077cc;
+      padding: 10px 15px;
+      display: block;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .dropdown-content a:hover { background: #f2f2f2; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    /* Hero */
     .hero {
-      height: 50vh;
+      height: 40vh;
       display: flex;
       justify-content: flex-start;
       align-items: flex-end;
       margin-top: 80px;
-      background: url('https://img.freepik.com/free-photo/digital-technology-network-background_34629-1179.jpg') no-repeat center center/cover;
-      position: relative;
+      background: #fff;
       padding-left: 60px;
       padding-bottom: 40px;
-      overflow: hidden;
     }
 
     /* Taglines */
     .tagline {
       font-size: 32px;
       font-weight: bold;
-      color: #fff;
-      text-shadow: 2px 2px 6px #0077cc;
+      color: #0077cc;
       display: none;
       animation: fadeIn 1s ease forwards;
     }
@@ -63,7 +82,7 @@
 
     /* Process Section */
     .process-section {
-      padding: 100px 50px;
+      padding: 80px 50px;
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
@@ -81,7 +100,7 @@
     }
     .process-card img {
       width: 100%;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
       border-radius: 10px;
       margin-bottom: 15px;
@@ -91,17 +110,18 @@
 
     /* Footer */
     footer {
-      padding: 40px;
-      text-align: center;
+      padding: 40px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: #0077cc;
-      font-size: 14px;
       color: #fff;
+      flex-wrap: wrap;
     }
     .counter-box {
-      margin-top: 20px;
       font-size: 22px;
       font-weight: bold;
-      color: #ffdd00; /* golden yellow */
+      color: #ffdd00;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
       animation: pulse 2s infinite;
     }
@@ -110,9 +130,37 @@
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
+    .social-icons a {
+      margin-left: 15px;
+      color: #fff;
+      font-size: 22px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social-icons a:hover { color: #ffdd00; }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      display: none;
+      transition: background 0.3s;
+    }
+    #backToTop:hover { background: #005fa3; }
   </style>
+  <!-- Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body oncontextmenu="return false">
 
 <!-- Navbar -->
 <div class="navbar">
@@ -120,8 +168,21 @@
   <div class="navbar-menu">
     <a href="#">Home</a>
     <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Process</a>
+    <div class="dropdown">
+      <a href="#">What We Do ▾</a>
+      <div class="dropdown-content">
+        <a href="#">Innovative IT Solutions</a>
+        <a href="#">Home Security</a>
+        <a href="#">Smart Technology</a>
+        <a href="#">Back Office Operations</a>
+        <a href="#">Smart Classrooms</a>
+        <a href="#">Smart Home</a>
+        <a href="#">Website Development</a>
+        <a href="#">Online Form Filling Works</a>
+        <a href="#">Computer Networking</a>
+        <a href="#">Cloud Storage Services</a>
+      </div>
+    </div>
     <a href="#">Contact</a>
   </div>
 </div>
@@ -145,17 +206,17 @@
 <!-- Process Section -->
 <section class="process-section">
   <div class="process-card">
-    <img src="https://img.freepik.com/free-photo/close-up-businessman-working-with-analytics_1098-1927.jpg" alt="Data Collection">
+    <img src="https://img.freepik.com/free-photo/businessman-using-digital-tablet-analyze-data_53876-105681.jpg" alt="Data Collection">
     <h3>Data Collection</h3>
     <p>Collecting raw and structured data for analysis.</p>
   </div>
   <div class="process-card">
-    <img src="https://img.freepik.com/free-photo/abstract-data-visualization-background_23-2149165952.jpg" alt="Data Processing">
+    <img src="https://img.freepik.com/free-photo/data-processing-server-room_1098-18729.jpg" alt="Data Processing">
     <h3>Data Processing</h3>
     <p>Processing and cleaning data for actionable insights.</p>
   </div>
   <div class="process-card">
-    <img src="https://img.freepik.com/free-photo/artificial-intelligence-robot-analyzing-data_53876-96809.jpg" alt="Analysis">
+    <img src="https://img.freepik.com/free-photo/business-analytics-dashboard_53876-126610.jpg" alt="Analysis">
     <h3>Analysis</h3>
     <p>Analyzing data using AI & Machine Learning.</p>
   </div>
@@ -163,36 +224,54 @@
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2025 Averlon. All Rights Reserved.</p>
   <div class="counter-box">
     <span id="customerCount">0</span>+ Happy Customers
   </div>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
 </footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
 <script>
   // Tagline Slider
   let taglines = document.querySelectorAll('.tagline');
   let idx = 0;
-
   function showTagline(i) {
     taglines.forEach(t => t.classList.remove('active'));
     taglines[i].classList.add('active');
   }
-
   setInterval(() => {
     idx = (idx + 1) % taglines.length;
     showTagline(idx);
-  }, 4000); // 4 sec
+  }, 4000);
 
   // Counter Animation (Loop 1 → 555 → 1)
   let count = 0;
   let counter = document.getElementById("customerCount");
-
   setInterval(() => {
     count++;
-    if (count > 555) { count = 1; } // reset loop
+    if (count > 555) { count = 1; }
     counter.innerText = count;
-  }, 30); // speed (ms)
+  }, 30);
+
+  // Back to Top Button
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 </script>
 
 </body>
