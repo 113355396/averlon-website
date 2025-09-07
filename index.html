@@ -1,278 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Averlon - IT & Technology</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Averlon - AI & Technology</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #fff; color: #000; overflow-x: hidden; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body,html{height:100%;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: #0077cc;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* NAVBAR */
+    .navbar{
+      background:#002B5B;color:#fff;padding:14px 28px;
+      display:flex;align-items:center;justify-content:space-between;
+      position:fixed;top:0;left:0;right:0;z-index:1000;
     }
-    .navbar-brand { font-size: 36px; font-weight: bold; color: #fff; }
-    .navbar-menu { display: flex; gap: 30px; }
-    .navbar-menu a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
+    .logo{font-weight:700;font-size:24px;letter-spacing:1px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:#fff;text-decoration:none;font-size:15px;padding:6px 8px;border-radius:4px}
+    .nav-links .dropdown{position:relative}
+    .nav-links .dropdown ul{
+      position:absolute;left:0;top:42px;background:#004080;border-radius:6px;
+      display:none;min-width:200px;box-shadow:0 6px 18px rgba(0,0,0,.18);padding:8px 0;
     }
-    .navbar-menu a:hover { color: #aaddff; }
+    .nav-links .dropdown ul a{display:block;padding:10px 14px;color:#fff}
+    .nav-links .dropdown:hover ul{display:block}
 
-    /* Dropdown */
-    .dropdown { position: relative; }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 30px;
-      left: 0;
-      background: #fff;
-      min-width: 220px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .dropdown-content a {
-      color: #0077cc;
-      padding: 10px 15px;
-      display: block;
-      text-decoration: none;
-      font-size: 16px;
-    }
-    .dropdown-content a:hover { background: #f2f2f2; }
-    .dropdown:hover .dropdown-content { display: block; }
-
-    /* Hero */
-    .hero {
-      height: 40vh;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      margin-top: 80px;
-      background: #fff;
-      padding-left: 60px;
-      padding-bottom: 40px;
+    /* BANNER */
+    .banner{
+      margin-top:62px;
+      height:80vh;
+      position:relative;
+      background:#f8faff;
+      display:flex;align-items:center;justify-content:center;
     }
 
-    /* Taglines */
-    .tagline {
-      font-size: 32px;
-      font-weight: bold;
-      color: #0077cc;
-      display: none;
-      animation: fadeIn 1s ease forwards;
+    .tagline-container{
+      display:flex;flex-direction:column;gap:18px;text-align:center;
     }
-    .tagline.active { display: block; }
+    .tagline{
+      display:none;flex-direction:column;align-items:center;gap:12px;
+    }
+    .tagline.active{display:flex;}
+    .tagline img{width:280px;height:160px;object-fit:cover;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.2)}
+    .tagline .text{font-size:28px;color:#002B5B;font-weight:700}
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateX(-30px); }
-      100% { opacity: 1; transform: translateX(0); }
+    /* PROCESSING SECTION */
+    .process-section{
+      padding:60px 40px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
     }
+    .process-card{
+      width:280px;background:#fff;border-radius:10px;padding:18px;text-align:center;
+      box-shadow:0 6px 16px rgba(0,0,0,.12);
+    }
+    .process-card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .process-card h3{font-size:20px;color:#002B5B;margin-bottom:8px}
+    .process-card p{font-size:14px;color:#333}
 
-    /* Process Section */
-    .process-section {
-      padding: 80px 50px;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 30px;
-      background: #f9f9f9;
+    /* FOOTER */
+    footer{
+      background:#002B5B;color:#fff;padding:22px 40px;
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
     }
-    .process-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      width: 260px;
-      transition: 0.3s;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .process-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .process-card h3 { font-size: 20px; margin-bottom: 10px; color: #000; }
-    .process-card p { font-size: 14px; color: #333; }
+    .counter-box{font-size:18px;font-weight:700}
+    .counter-number{font-size:26px;color:#ffcc00;margin-left:6px}
 
-    /* Footer */
-    footer {
-      padding: 40px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #0077cc;
-      color: #fff;
-      flex-wrap: wrap;
-    }
-    .counter-box {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffdd00;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .social-icons a {
-      margin-left: 15px;
-      color: #fff;
-      font-size: 22px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .social-icons a:hover { color: #ffdd00; }
-
-    /* Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #0077cc;
-      color: #fff;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      display: none;
-      transition: background 0.3s;
-    }
-    #backToTop:hover { background: #005fa3; }
+    .social-icons{display:flex;gap:16px}
+    .social-icons a{color:#fff;font-size:20px;text-decoration:none;transition:0.3s}
+    .social-icons a:hover{color:#ffcc00}
   </style>
-  <!-- Icons CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body oncontextmenu="return false">
+<body>
 
-<!-- Navbar -->
-<div class="navbar">
-  <div class="navbar-brand">AVERLON</div>
-  <div class="navbar-menu">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <div class="dropdown">
-      <a href="#">What We Do ▾</a>
-      <div class="dropdown-content">
-        <a href="#">Innovative IT Solutions</a>
-        <a href="#">Home Security</a>
-        <a href="#">Smart Technology</a>
-        <a href="#">Back Office Operations</a>
-        <a href="#">Smart Classrooms</a>
-        <a href="#">Smart Home</a>
-        <a href="#">Website Development</a>
-        <a href="#">Online Form Filling Works</a>
-        <a href="#">Computer Networking</a>
-        <a href="#">Cloud Storage Services</a>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">AVERLON</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <div class="dropdown">
+        <a href="#">Services ▾</a>
+        <ul>
+          <li><a href="#">AI Solutions</a></li>
+          <li><a href="#">Smart Classrooms</a></li>
+          <li><a href="#">Smart Home</a></li>
+          <li><a href="#">Security Systems</a></li>
+        </ul>
+      </div>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <section class="banner">
+    <div class="tagline-container">
+      <div class="tagline active">
+        <img src="https://img.freepik.com/free-photo/artificial-intelligence-robot-head-illustration_53876-112123.jpg" alt="AI Research">
+        <div class="text">AI Research</div>
+      </div>
+      <div class="tagline">
+        <img src="https://img.freepik.com/free-photo/futuristic-man-head-wireframe-ai-concept_53876-124561.jpg" alt="AI Godfather">
+        <div class="text">AI Godfather</div>
+      </div>
+      <div class="tagline">
+        <img src="https://img.freepik.com/free-photo/visual-search-concept-futuristic-ai_53876-118921.jpg" alt="Visual Search">
+        <div class="text">Visual Search</div>
       </div>
     </div>
-    <a href="#">Contact</a>
-  </div>
-</div>
+  </section>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="slider-text">
-    <div class="tagline active">Innovative IT Solutions</div>
-    <div class="tagline">Home Security</div>
-    <div class="tagline">Smart Technology</div>
-    <div class="tagline">Back Office Operations</div>
-    <div class="tagline">Smart Classrooms</div>
-    <div class="tagline">Smart Home</div>
-    <div class="tagline">Website Development</div>
-    <div class="tagline">Online Form Filling Works</div>
-    <div class="tagline">Computer Networking</div>
-    <div class="tagline">Cloud Storage Services</div>
-  </div>
-</section>
+  <!-- PROCESSING SECTION -->
+  <section class="process-section">
+    <div class="process-card">
+      <img src="https://img.freepik.com/free-photo/businessman-using-digital-tablet-analyze-data_53876-105681.jpg" alt="Data Collection">
+      <h3>Data Collection</h3>
+      <p>Collecting raw and structured data for analysis.</p>
+    </div>
+    <div class="process-card">
+      <img src="https://img.freepik.com/free-photo/data-processing-server-room_1098-18729.jpg" alt="Data Processing">
+      <h3>Data Processing</h3>
+      <p>Processing and cleaning data for actionable insights.</p>
+    </div>
+    <div class="process-card">
+      <img src="https://img.freepik.com/free-photo/business-analytics-dashboard_53876-126610.jpg" alt="Data Analysis">
+      <h3>Data Analysis</h3>
+      <p>Analyzing data using AI & Machine Learning.</p>
+    </div>
+  </section>
 
-<!-- Process Section -->
-<section class="process-section">
-  <div class="process-card">
-    <img src="https://img.freepik.com/free-photo/businessman-using-digital-tablet-analyze-data_53876-105681.jpg" alt="Data Collection">
-    <h3>Data Collection</h3>
-    <p>Collecting raw and structured data for analysis.</p>
-  </div>
-  <div class="process-card">
-    <img src="https://img.freepik.com/free-photo/data-processing-server-room_1098-18729.jpg" alt="Data Processing">
-    <h3>Data Processing</h3>
-    <p>Processing and cleaning data for actionable insights.</p>
-  </div>
-  <div class="process-card">
-    <img src="https://img.freepik.com/free-photo/business-analytics-dashboard_53876-126610.jpg" alt="Analysis">
-    <h3>Analysis</h3>
-    <p>Analyzing data using AI & Machine Learning.</p>
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="counter-box">
+      Happy Customers: <span id="counter" class="counter-number">1</span>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i>🌐</i></a>
+      <a href="#"><i>📘</i></a>
+      <a href="#"><i>🐦</i></a>
+      <a href="#"><i>💼</i></a>
+      <a href="#"><i>📸</i></a>
+    </div>
+  </footer>
 
-<!-- Footer -->
-<footer>
-  <div class="counter-box">
-    <span id="customerCount">0</span>+ Happy Customers
-  </div>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-youtube"></i></a>
-  </div>
-</footer>
+  <script>
+    // Tagline slider
+    let taglines=document.querySelectorAll(".tagline");
+    let idx=0;
+    setInterval(()=>{
+      taglines[idx].classList.remove("active");
+      idx=(idx+1)%taglines.length;
+      taglines[idx].classList.add("active");
+    },6000);
 
-<!-- Back to Top Button -->
-<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
-
-<script>
-  // Tagline Slider
-  let taglines = document.querySelectorAll('.tagline');
-  let idx = 0;
-  function showTagline(i) {
-    taglines.forEach(t => t.classList.remove('active'));
-    taglines[i].classList.add('active');
-  }
-  setInterval(() => {
-    idx = (idx + 1) % taglines.length;
-    showTagline(idx);
-  }, 4000);
-
-  // Counter Animation (Loop 1 → 555 → 1)
-  let count = 0;
-  let counter = document.getElementById("customerCount");
-  setInterval(() => {
-    count++;
-    if (count > 555) { count = 1; }
-    counter.innerText = count;
-  }, 30);
-
-  // Back to Top Button
-  const backToTop = document.getElementById("backToTop");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTop.style.display = "block";
-    } else {
-      backToTop.style.display = "none";
-    }
-  });
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
+    // Counter (1 to 555, then reset)
+    let counter=document.getElementById("counter");
+    let value=1;
+    setInterval(()=>{
+      counter.textContent=value;
+      value++;
+      if(value>555) value=1;
+    },50);
+  </script>
 
 </body>
 </html>
