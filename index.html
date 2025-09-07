@@ -22,53 +22,23 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .navbar-brand { font-size: 40px; font-weight: bold; color: #fff; }
-    .navbar-menu { position: relative; }
     .navbar-menu a {
       color: #fff;
       text-decoration: none;
       margin-left: 30px;
       font-size: 18px;
       transition: 0.3s;
-      position: relative;
     }
     .navbar-menu a:hover { color: #aaddff; }
 
-    /* Dropdown Submenu */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: #0077cc;
-      min-width: 220px;
-      top: 40px;
-      left: 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-    }
-    .dropdown-content a {
-      color: #fff;
-      padding: 12px 16px;
-      display: block;
-      font-size: 16px;
-    }
-    .dropdown-content a:hover {
-      background: #005fa3;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
     /* Hero Section */
     .hero {
-      height: 33vh;
+      height: 50vh;
       display: flex;
       justify-content: flex-start;
       align-items: flex-end;
       margin-top: 80px;
-      background: url('https://www.freepik.com/free-photo/abstract-technology-background-with-blue-light_1154418.htm') no-repeat center center/cover;
+      background: url('https://img.freepik.com/free-photo/digital-technology-network-background_34629-1179.jpg') no-repeat center center/cover;
       position: relative;
       padding-left: 60px;
       padding-bottom: 40px;
@@ -77,16 +47,14 @@
 
     /* Taglines */
     .tagline {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
       color: #fff;
-      text-shadow: 2px 2px 4px #0077cc;
+      text-shadow: 2px 2px 6px #0077cc;
       display: none;
       animation: fadeIn 1s ease forwards;
     }
-    .tagline.active {
-      display: block;
-    }
+    .tagline.active { display: block; }
 
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateX(-30px); }
@@ -100,38 +68,47 @@
       justify-content: space-around;
       flex-wrap: wrap;
       gap: 30px;
+      background: #f9f9f9;
     }
     .process-card {
-      background: #f9f9f9;
+      background: #fff;
       padding: 20px;
       border-radius: 10px;
       text-align: center;
-      width: 250px;
+      width: 260px;
       transition: 0.3s;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .process-card img {
       width: 100%;
+      height: 150px;
+      object-fit: cover;
       border-radius: 10px;
       margin-bottom: 15px;
     }
-    .process-card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #000;
-    }
-    .process-card p {
-      font-size: 14px;
-      color: #333;
-    }
+    .process-card h3 { font-size: 20px; margin-bottom: 10px; color: #000; }
+    .process-card p { font-size: 14px; color: #333; }
 
     /* Footer */
     footer {
-      padding: 50px;
+      padding: 40px;
       text-align: center;
       background: #0077cc;
       font-size: 14px;
       color: #fff;
+    }
+    .counter-box {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffdd00; /* golden yellow */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
@@ -143,21 +120,7 @@
   <div class="navbar-menu">
     <a href="#">Home</a>
     <a href="#">About</a>
-    <div class="dropdown">
-      <a href="#">Services ▾</a>
-      <div class="dropdown-content">
-        <a href="#">Innovative IT Solutions</a>
-        <a href="#">Home Security</a>
-        <a href="#">Smart Technology</a>
-        <a href="#">Back Office Operations</a>
-        <a href="#">Smart Classrooms</a>
-        <a href="#">Smart Home</a>
-        <a href="#">Website Development</a>
-        <a href="#">Online Form Filling Works</a>
-        <a href="#">Computer Networking</a>
-        <a href="#">Cloud Storage Services</a>
-      </div>
-    </div>
+    <a href="#">Services</a>
     <a href="#">Process</a>
     <a href="#">Contact</a>
   </div>
@@ -182,17 +145,17 @@
 <!-- Process Section -->
 <section class="process-section">
   <div class="process-card">
-    <img src="https://www.freepik.com/free-photo/abstract-technology-background-with-blue-light_1154418.htm" alt="Process 1">
+    <img src="https://img.freepik.com/free-photo/close-up-businessman-working-with-analytics_1098-1927.jpg" alt="Data Collection">
     <h3>Data Collection</h3>
     <p>Collecting raw and structured data for analysis.</p>
   </div>
   <div class="process-card">
-    <img src="https://www.freepik.com/free-photo/abstract-technology-background-with-blue-light_1154418.htm" alt="Process 2">
+    <img src="https://img.freepik.com/free-photo/abstract-data-visualization-background_23-2149165952.jpg" alt="Data Processing">
     <h3>Data Processing</h3>
     <p>Processing and cleaning data for actionable insights.</p>
   </div>
   <div class="process-card">
-    <img src="https://www.freepik.com/free-photo/abstract-technology-background-with-blue-light_1154418.htm" alt="Process 3">
+    <img src="https://img.freepik.com/free-photo/artificial-intelligence-robot-analyzing-data_53876-96809.jpg" alt="Analysis">
     <h3>Analysis</h3>
     <p>Analyzing data using AI & Machine Learning.</p>
   </div>
@@ -200,11 +163,14 @@
 
 <!-- Footer -->
 <footer>
-  &copy; 2025 Averlon. All Rights Reserved.
+  <p>&copy; 2025 Averlon. All Rights Reserved.</p>
+  <div class="counter-box">
+    <span id="customerCount">0</span>+ Happy Customers
+  </div>
 </footer>
 
 <script>
-  // Slider for taglines
+  // Tagline Slider
   let taglines = document.querySelectorAll('.tagline');
   let idx = 0;
 
@@ -216,7 +182,17 @@
   setInterval(() => {
     idx = (idx + 1) % taglines.length;
     showTagline(idx);
-  }, 6000); // 6 seconds interval
+  }, 4000); // 4 sec
+
+  // Counter Animation (Loop 1 → 555 → 1)
+  let count = 0;
+  let counter = document.getElementById("customerCount");
+
+  setInterval(() => {
+    count++;
+    if (count > 555) { count = 1; } // reset loop
+    counter.innerText = count;
+  }, 30); // speed (ms)
 </script>
 
 </body>
