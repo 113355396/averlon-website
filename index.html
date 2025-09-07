@@ -3,10 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Averlon - AI & Technology</title>
+  <title>Averlon - Future Sorted</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body,html{height:100%;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+    body,html{height:100%;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;background:#eaf6ff;position:relative;}
+
+    /* BACKGROUND DESIGN (DNA / RETINA + BUBBLES) */
+    body::before{
+      content:"";position:fixed;top:0;left:0;width:100%;height:100%;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.4) 2%, transparent 4%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.35) 1.5%, transparent 3%),
+        repeating-linear-gradient(90deg, rgba(0,120,255,0.05) 0px, transparent 80px);
+      background-size:200px 200px, 250px 250px, auto;
+      animation: bgmove 40s linear infinite;
+      z-index:-2;
+    }
+    @keyframes bgmove{
+      from{background-position:0 0,0 0,0 0;}
+      to{background-position:800px 400px,-600px 300px,300px 0;}
+    }
+
+    .bubble{
+      position:fixed;border-radius:50%;background:rgba(255,255,255,0.3);
+      animation: float 40s infinite ease-in-out;z-index:-1;
+    }
+    @keyframes float{
+      0%{transform:translateY(0) translateX(0);}
+      50%{transform:translateY(-200px) translateX(100px);}
+      100%{transform:translateY(0) translateX(0);}
+    }
+    .bubble:nth-child(1){width:120px;height:120px;left:10%;top:80%;animation-duration:45s;}
+    .bubble:nth-child(2){width:90px;height:90px;left:70%;top:70%;animation-duration:38s;}
+    .bubble:nth-child(3){width:60px;height:60px;left:50%;top:85%;animation-duration:50s;}
+    .bubble:nth-child(4){width:140px;height:140px;left:80%;top:90%;animation-duration:55s;}
+    .bubble:nth-child(5){width:100px;height:100px;left:30%;top:75%;animation-duration:42s;}
 
     /* NAVBAR */
     .navbar{
@@ -27,11 +58,10 @@
 
     /* BANNER */
     .banner{
-      margin-top:62px;height:70vh;background:#f8faff;
-      display:flex;align-items:center;justify-content:center;position:relative;
+      margin-top:62px;height:60vh;display:flex;align-items:center;justify-content:center;position:relative;
     }
     .tagline{
-      position:absolute;font-size:36px;font-weight:700;color:#002B5B;
+      position:absolute;font-size:32px;font-weight:700;color:#002B5B;
       opacity:0;transition:opacity 2s ease;
     }
     .tagline.show{opacity:1;}
@@ -39,7 +69,6 @@
     /* FLIP BOXES */
     .process-section{
       padding:60px 40px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
-      background:#fafafa;
     }
     .flip-box{
       background:transparent;width:260px;height:200px;perspective:1000px;
@@ -69,7 +98,14 @@
     .social-icons a:hover{color:#ffcc00}
   </style>
 </head>
-<body>
+<body oncontextmenu="return false">
+
+  <!-- MOVING BUBBLES -->
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -83,6 +119,8 @@
           <li><a href="#">Smart Classrooms</a></li>
           <li><a href="#">Smart Home</a></li>
           <li><a href="#">Security Systems</a></li>
+          <li><a href="#">Data Processing</a></li>
+          <li><a href="#">Form Filling</a></li>
         </ul>
       </div>
       <a href="#">About</a>
@@ -93,34 +131,41 @@
   <!-- BANNER -->
   <section class="banner">
     <div class="tagline">AI Research & Innovation</div>
-    <div class="tagline">Technology for Tomorrow</div>
-    <div class="tagline">Smart Solutions, Smarter Future</div>
+    <div class="tagline">Future Sorted with Technology</div>
+    <div class="tagline">Smarter Solutions Everyday</div>
+    <div class="tagline">Your Data, Our Intelligence</div>
   </section>
 
-  <!-- PROCESSING SECTION (FLIP BOXES) -->
+  <!-- PROCESSING SECTION (5 FLIP BOXES) -->
   <section class="process-section">
     <div class="flip-box">
       <div class="flip-box-inner">
         <div class="flip-box-front">AI Solutions</div>
-        <div class="flip-box-back">कृत्रिम बुद्धिमत्ता से आपके व्यापार और जीवन को स्मार्ट बनाना।</div>
+        <div class="flip-box-back">कृत्रिम बुद्धिमत्ता से स्मार्ट निर्णय लेने की सुविधा।</div>
       </div>
     </div>
     <div class="flip-box">
       <div class="flip-box-inner">
         <div class="flip-box-front">Smart Classrooms</div>
-        <div class="flip-box-back">स्मार्ट तकनीक से शिक्षा को और आसान और प्रभावी बनाना।</div>
+        <div class="flip-box-back">शिक्षा को इंटरएक्टिव और डिजिटल बनाना।</div>
       </div>
     </div>
     <div class="flip-box">
       <div class="flip-box-inner">
         <div class="flip-box-front">Smart Home</div>
-        <div class="flip-box-back">आपके घर को सुरक्षित और आधुनिक बनाने के लिए स्मार्ट समाधान।</div>
+        <div class="flip-box-back">आपके घर को सुरक्षित और ऑटोमेटेड बनाना।</div>
       </div>
     </div>
     <div class="flip-box">
       <div class="flip-box-inner">
         <div class="flip-box-front">Security Systems</div>
-        <div class="flip-box-back">बायोमेट्रिक और CCTV से बेहतर सुरक्षा के समाधान।</div>
+        <div class="flip-box-back">CCTV और बायोमेट्रिक से सुरक्षा मजबूत।</div>
+      </div>
+    </div>
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">Data Processing</div>
+        <div class="flip-box-back">डेटा को समझकर बेहतर समाधान प्रदान करना।</div>
       </div>
     </div>
   </section>
