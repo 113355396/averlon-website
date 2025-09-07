@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Averlon - AI & Technology</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
+    *{margin:0;padding:0;box-sizing:border-box}
     body,html{height:100%;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
 
     /* NAVBAR */
@@ -27,35 +27,36 @@
 
     /* BANNER */
     .banner{
-      margin-top:62px;
-      height:80vh;
-      position:relative;
-      background:#f8faff;
-      display:flex;align-items:center;justify-content:center;
-    }
-
-    .tagline-container{
-      display:flex;flex-direction:column;gap:18px;text-align:center;
+      margin-top:62px;height:70vh;background:#f8faff;
+      display:flex;align-items:center;justify-content:center;position:relative;
     }
     .tagline{
-      display:none;flex-direction:column;align-items:center;gap:12px;
+      position:absolute;font-size:36px;font-weight:700;color:#002B5B;
+      opacity:0;transition:opacity 2s ease;
     }
-    .tagline.active{display:flex;}
-    .tagline img{width:280px;height:160px;object-fit:cover;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.2)}
-    .tagline .text{font-size:28px;color:#002B5B;font-weight:700}
+    .tagline.show{opacity:1;}
 
-    /* PROCESSING SECTION */
+    /* FLIP BOXES */
     .process-section{
       padding:60px 40px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+      background:#fafafa;
     }
-    .process-card{
-      width:280px;background:#fff;border-radius:10px;padding:18px;text-align:center;
-      box-shadow:0 6px 16px rgba(0,0,0,.12);
+    .flip-box{
+      background:transparent;width:260px;height:200px;perspective:1000px;
     }
-    .process-card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:12px}
-    .process-card h3{font-size:20px;color:#002B5B;margin-bottom:8px}
-    .process-card p{font-size:14px;color:#333}
-
+    .flip-box-inner{
+      position:relative;width:100%;height:100%;
+      transition:transform 0.8s;transform-style:preserve-3d;
+    }
+    .flip-box:hover .flip-box-inner{transform:rotateY(180deg);}
+    .flip-box-front,.flip-box-back{
+      position:absolute;width:100%;height:100%;border-radius:10px;
+      backface-visibility:hidden;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 16px rgba(0,0,0,.12);padding:20px;text-align:center;
+    }
+    .flip-box-front{background:#002B5B;color:#fff;font-size:20px;font-weight:700}
+    .flip-box-back{background:#fff;color:#333;font-size:16px;transform:rotateY(180deg);}
+    
     /* FOOTER */
     footer{
       background:#002B5B;color:#fff;padding:22px 40px;
@@ -63,7 +64,6 @@
     }
     .counter-box{font-size:18px;font-weight:700}
     .counter-number{font-size:26px;color:#ffcc00;margin-left:6px}
-
     .social-icons{display:flex;gap:16px}
     .social-icons a{color:#fff;font-size:20px;text-decoration:none;transition:0.3s}
     .social-icons a:hover{color:#ffcc00}
@@ -92,38 +92,36 @@
 
   <!-- BANNER -->
   <section class="banner">
-    <div class="tagline-container">
-      <div class="tagline active">
-        <img src="https://img.freepik.com/free-photo/artificial-intelligence-robot-head-illustration_53876-112123.jpg" alt="AI Research">
-        <div class="text">AI Research</div>
-      </div>
-      <div class="tagline">
-        <img src="https://img.freepik.com/free-photo/futuristic-man-head-wireframe-ai-concept_53876-124561.jpg" alt="AI Godfather">
-        <div class="text">AI Godfather</div>
-      </div>
-      <div class="tagline">
-        <img src="https://img.freepik.com/free-photo/visual-search-concept-futuristic-ai_53876-118921.jpg" alt="Visual Search">
-        <div class="text">Visual Search</div>
-      </div>
-    </div>
+    <div class="tagline">AI Research & Innovation</div>
+    <div class="tagline">Technology for Tomorrow</div>
+    <div class="tagline">Smart Solutions, Smarter Future</div>
   </section>
 
-  <!-- PROCESSING SECTION -->
+  <!-- PROCESSING SECTION (FLIP BOXES) -->
   <section class="process-section">
-    <div class="process-card">
-      <img src="https://img.freepik.com/free-photo/businessman-using-digital-tablet-analyze-data_53876-105681.jpg" alt="Data Collection">
-      <h3>Data Collection</h3>
-      <p>Collecting raw and structured data for analysis.</p>
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">AI Solutions</div>
+        <div class="flip-box-back">कृत्रिम बुद्धिमत्ता से आपके व्यापार और जीवन को स्मार्ट बनाना।</div>
+      </div>
     </div>
-    <div class="process-card">
-      <img src="https://img.freepik.com/free-photo/data-processing-server-room_1098-18729.jpg" alt="Data Processing">
-      <h3>Data Processing</h3>
-      <p>Processing and cleaning data for actionable insights.</p>
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">Smart Classrooms</div>
+        <div class="flip-box-back">स्मार्ट तकनीक से शिक्षा को और आसान और प्रभावी बनाना।</div>
+      </div>
     </div>
-    <div class="process-card">
-      <img src="https://img.freepik.com/free-photo/business-analytics-dashboard_53876-126610.jpg" alt="Data Analysis">
-      <h3>Data Analysis</h3>
-      <p>Analyzing data using AI & Machine Learning.</p>
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">Smart Home</div>
+        <div class="flip-box-back">आपके घर को सुरक्षित और आधुनिक बनाने के लिए स्मार्ट समाधान।</div>
+      </div>
+    </div>
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">Security Systems</div>
+        <div class="flip-box-back">बायोमेट्रिक और CCTV से बेहतर सुरक्षा के समाधान।</div>
+      </div>
     </div>
   </section>
 
@@ -133,25 +131,27 @@
       Happy Customers: <span id="counter" class="counter-number">1</span>
     </div>
     <div class="social-icons">
-      <a href="#"><i>🌐</i></a>
-      <a href="#"><i>📘</i></a>
-      <a href="#"><i>🐦</i></a>
-      <a href="#"><i>💼</i></a>
-      <a href="#"><i>📸</i></a>
+      <a href="#">🌐</a>
+      <a href="#">📘</a>
+      <a href="#">🐦</a>
+      <a href="#">💼</a>
+      <a href="#">📸</a>
     </div>
   </footer>
 
   <script>
-    // Tagline slider
-    let taglines=document.querySelectorAll(".tagline");
-    let idx=0;
-    setInterval(()=>{
-      taglines[idx].classList.remove("active");
-      idx=(idx+1)%taglines.length;
-      taglines[idx].classList.add("active");
-    },6000);
+    // Tagline fade-in/out
+    const taglines=document.querySelectorAll(".banner .tagline");
+    let current=0;
+    function showTagline(){
+      taglines.forEach((t,i)=>t.classList.remove("show"));
+      taglines[current].classList.add("show");
+      current=(current+1)%taglines.length;
+    }
+    showTagline();
+    setInterval(showTagline,4000);
 
-    // Counter (1 to 555, then reset)
+    // Counter (1 to 555 loop)
     let counter=document.getElementById("counter");
     let value=1;
     setInterval(()=>{
